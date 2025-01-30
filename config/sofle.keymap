@@ -23,6 +23,18 @@
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&rgb_ug>;
         };
+        
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+        
+        vol_encoder: vol_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+        };
     };
 
     // Activate ADJUST layer by pressing raise and lower
@@ -58,8 +70,8 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp C_VOL_DN C_VOL_UP,
-                &inc_dec_kp RGB_BRI RGB_BRD
+                &vol_encoder
+                &rgb_encoder
             >;
         };
 
@@ -83,8 +95,8 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp RGB_HUI RGB_HUD,
-                &inc_dec_kp RGB_SAI RGB_SAD
+                &rgb_encoder_hue
+                &rgb_encoder_sat
             >;
         };
 
@@ -107,8 +119,8 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp RGB_EFF RGB_EFR,
-                &inc_dec_kp RGB_BRI RGB_BRD
+                &rgb_encoder_eff
+                &rgb_encoder
             >;
         };
 
@@ -146,5 +158,25 @@
         extra3 { status = "reserved"; };
 
         extra4 { status = "reserved"; };
+    };
+
+    behaviors {
+        rgb_encoder_hue: rgb_encoder_hue {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
+        };
+
+        rgb_encoder_sat: rgb_encoder_sat {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
+        };
+
+        rgb_encoder_eff: rgb_encoder_eff {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
+        };
     };
 };
