@@ -35,6 +35,31 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
         };
+
+        // Add layer-specific RGB behaviors
+        rgb_layer_default: rgb_layer_default {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(0,100,100)>;  // Red for default layer
+        };
+
+        rgb_layer_lower: rgb_layer_lower {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(120,100,100)>;  // Green for lower layer
+        };
+
+        rgb_layer_raise: rgb_layer_raise {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(240,100,100)>;  // Blue for raise layer
+        };
+
+        rgb_layer_adjust: rgb_layer_adjust {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(280,100,100)>;  // Purple for adjust layer
+        };
     };
 
     // Activate ADJUST layer by pressing raise and lower
