@@ -16,6 +16,14 @@
 #define ADJUST 3
 
 / {
+    behaviors {
+        inc_dec_cp_press: encoder_inc_dec_press {
+            compatible = "zmk,behavior-sensor-rotate-press";
+            #sensor-binding-cells = <3>;
+            bindings = <&inc_dec>, <&kp>;
+        };
+    };
+
     // Activate ADJUST layer by pressing raise and lower
 
     conditional_layers {
@@ -49,8 +57,12 @@
             >;
 
             sensor-bindings = <
-                <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_ug RGB_TOG>,
-                <&inc_dec_kp RGB_BRI RGB_BRD &rgb_ug RGB_EFF>
+                &inc_dec_cp_press 
+                    C_VOL_DN C_VOL_UP 
+                    &rgb_ug RGB_TOG,
+                &inc_dec_cp_press 
+                    RGB_BRI RGB_BRD 
+                    &rgb_ug RGB_EFF
             >;
         };
 
@@ -74,8 +86,12 @@
             >;
 
             sensor-bindings = <
-                <&inc_dec_kp RGB_HUI RGB_HUD &rgb_ug RGB_SAI>,
-                <&inc_dec_kp RGB_SAI RGB_SAD &rgb_ug RGB_SAD>
+                &inc_dec_cp_press 
+                    RGB_HUI RGB_HUD 
+                    &rgb_ug RGB_SAI,
+                &inc_dec_cp_press 
+                    RGB_SAI RGB_SAD 
+                    &rgb_ug RGB_SAD
             >;
         };
 
@@ -98,8 +114,12 @@
             >;
 
             sensor-bindings = <
-                <&inc_dec_kp RGB_EFF RGB_EFR &rgb_ug RGB_TOG>,
-                <&inc_dec_kp RGB_BRI RGB_BRD &rgb_ug RGB_BRI>
+                &inc_dec_cp_press 
+                    RGB_EFF RGB_EFR 
+                    &rgb_ug RGB_TOG,
+                &inc_dec_cp_press 
+                    RGB_BRI RGB_BRD 
+                    &rgb_ug RGB_BRI
             >;
         };
 
