@@ -48,9 +48,10 @@
                    &kp DOWN_ARROW  &kp UP_ARROW  &kp RALT  &lt 1 SPACE  &kp LGUI    &lt 3 SPACE  &lt 2 RET  &lt 4 C_AC_VIEW_TOGGLE  &kp LEFT_ARROW  &kp RIGHT
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <
+                <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_ug RGB_TOG>,
+                <&inc_dec_kp RGB_BRI RGB_BRD &rgb_ug RGB_EFF>
+            >;
         };
 
         lower_layer {
@@ -72,7 +73,10 @@
                       &trans     &trans       &trans    &trans     &trans    &trans  &trans     &trans    &trans           &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <
+                <&inc_dec_kp RGB_HUI RGB_HUD &rgb_ug RGB_SAI>,
+                <&inc_dec_kp RGB_SAI RGB_SAD &rgb_ug RGB_SAD>
+            >;
         };
 
         raise_layer {
@@ -93,7 +97,10 @@
                           &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <
+                <&inc_dec_kp RGB_EFF RGB_EFR &rgb_ug RGB_TOG>,
+                <&inc_dec_kp RGB_BRI RGB_BRD &rgb_ug RGB_BRI>
+            >;
         };
 
         adjust_layer {
