@@ -23,13 +23,13 @@
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&rgb_ug>;
         };
-        
+
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
         };
-        
+
         vol_encoder: vol_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -37,6 +37,7 @@
         };
 
         // Add layer-specific RGB behaviors
+
         rgb_layer_default: rgb_layer_default {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -73,6 +74,9 @@
         };
     };
 
+    macros {
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -87,11 +91,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2          &kp N3        &kp N4    &kp N5                              &kp N6       &kp N7                  &kp N8          &kp N9     &kp N0    &kp BACKSPACE
-&kp TAB    &kp Q   &kp W           &kp E         &kp R     &kp T                               &kp Y        &kp U                   &kp I           &kp O      &kp P     &kp DEL
-&kp LCTRL  &kp A   &kp S           &kp D         &kp F     &kp G                               &kp H        &kp J                   &kp K           &kp L      &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X           &kp C         &kp V     &kp B     &kp C_MUTE     &none      &kp N        &kp M                   &kp COMMA       &kp DOT    &kp FSLH  &kp APOS
-                   &kp DOWN_ARROW  &kp UP_ARROW  &kp RALT  &lt 1 SPACE  &kp LGUI    &lt 3 SPACE  &lt 2 RET  &lt 4 C_AC_VIEW_TOGGLE  &kp LEFT_ARROW  &kp RIGHT
+&kp ESC    &kp N1  &kp N2          &kp N3        &kp N4    &kp N5                                           &kp N6       &kp N7                  &kp N8          &kp N9     &kp N0    &kp BACKSPACE
+&kp TAB    &kp Q   &kp W           &kp E         &kp R     &kp T                                            &kp Y        &kp U                   &kp I           &kp O      &kp P     &kp DEL
+&kp LCTRL  &kp A   &kp S           &kp D         &kp F     &kp G                                            &kp H        &kp J                   &kp K           &kp L      &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X           &kp C         &kp V     &kp B               &kp C_MUTE     &none         &kp N        &kp M                   &kp COMMA       &kp DOT    &kp FSLH  &kp APOS
+                   &kp DOWN_ARROW  &kp UP_ARROW  &kp RALT  &mt LEFT_GUI SPACE  &lt 1 SPACE    &lt 2 RETURN  &lt 3 SPACE  &lt 4 C_AC_VIEW_TOGGLE  &kp LEFT_ARROW  &kp RIGHT
             >;
 
             sensor-bindings = <
@@ -176,6 +180,7 @@
                 &trans  &trans  &trans  &trans  &trans    &trans  &trans        &kp N0  &trans  &trans
             >;
         };
+
         extra1 { status = "reserved"; };
 
         extra2 { status = "reserved"; };
